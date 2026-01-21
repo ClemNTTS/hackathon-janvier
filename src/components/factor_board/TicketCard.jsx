@@ -19,6 +19,7 @@ function TicketCard({ ticket, onClick }) {
         const icons = {
             'Boîte endommagée': '🔨',
             'Serrure défectueuse': '🔐',
+            'Porte cassée': '🚪',
             'Boîte vandalisée': '⚠️',
             'Problème d\'accès': '🚫',
             'Boîte pleine/bloquée': '📦',
@@ -27,11 +28,26 @@ function TicketCard({ ticket, onClick }) {
         return icons[problemType] || '📮';
     };
 
+    const getStatusInfo = (status) => {
+        const statusMap = {
+            'non_traite': { label: 'Non traité', color: 'red' },
+            'en_cours': { label: 'En cours', color: 'orange' },
+            'verification': { label: 'Vérification', color: 'blue' },
+            'termine': { label: 'Terminé', color: 'green' }
+        };
+        return statusMap[status] || { label: 'Inconnu', color: 'gray' };
+    };
+
+    const statusInfo = getStatusInfo(ticket.status);
+
     return (
-        <div className="ticket-card" onClick={onClick}>
+        <div className={`ticket-card status-${statusInfo.color}`} onClick={onClick}>
             <div className="ticket-card-header">
                 <span className="ticket-id">#{ticket.id}</span>
-                <span className="ticket-time">{formatDate(ticket.createdAt)}</span>
+                <div className="ticket-header-right">
+                    <span className={`status-dot status-${statusInfo.color}`} title={statusInfo.label}></span>
+                    <span className="ticket-time">{formatDate(ticket.createdAt)}</span>
+                </div>
             </div>
 
             <div className="ticket-card-body">

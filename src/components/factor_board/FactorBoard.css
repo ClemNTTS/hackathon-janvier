@@ -1,8 +1,8 @@
-/* ===== FACTOR BOARD - STYLES PRINCIPAUX ===== */
+/* ===== FACTOR BOARD - DESIGN LA POSTE ===== */
 
 .factor-board {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #003D7A 0%, #0052A3 100%);
     padding: 2rem;
 }
 
@@ -20,21 +20,59 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.app-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #FFCD00;
+    letter-spacing: 0.3em;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+.app-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
+    letter-spacing: 0.05em;
+}
+
 .factor-board-header .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: 1rem;
+    opacity: 0.85;
     font-weight: 300;
     margin-bottom: 1.5rem;
+}
+
+/* ===== LOGO LA POSTE ===== */
+
+.laposte-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.laposte-logo svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.laposte-logo svg:hover {
+    transform: scale(1.05);
 }
 
 /* ===== BOUTON OUVERTURE MODAL ===== */
 
 .open-modal-button {
     padding: 1rem 2rem;
-    background: white;
-    color: #667eea;
+    background: #FFCD00;
+    color: #003D7A;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
@@ -42,13 +80,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .open-modal-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    background: #f8fafc;
+    box-shadow: 0 8px 20px rgba(255, 205, 0, 0.4);
+    background: #FFD633;
 }
 
 .open-modal-button:active {
@@ -76,7 +114,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 61, 122, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,14 +125,18 @@
 
 .modal-content {
     background: white;
-    border-radius: 20px;
+    border-radius: 12px;
     max-width: 600px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #FFCD00;
+    /* Assurer que le select reste dans le modal */
+    isolation: isolate;
 }
 
 .modal-close-button {
@@ -124,6 +166,8 @@
 .modal-content .create-ticket-form {
     animation: none;
     box-shadow: none;
+    position: relative;
+    z-index: 1;
 }
 
 /* Scrollbar personnalisée pour le modal */
@@ -137,12 +181,12 @@
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
+    background: #FFCD00;
     border-radius: 10px;
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
-    background: #a0aec0;
+    background: #FFD633;
 }
 
 /* ===== VALIDATION POPUP ===== */
@@ -164,29 +208,30 @@
 .validation-content {
     background: white;
     padding: 2.5rem;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
     max-width: 500px;
     animation: scaleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-top: 4px solid #FFCD00;
 }
 
 .validation-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #FFCD00;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: white;
+    color: #003D7A;
     margin: 0 auto 1.5rem;
     animation: pulse 1s ease-in-out infinite;
 }
 
 .validation-content h3 {
-    color: #2d3748;
+    color: #003D7A;
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
@@ -201,19 +246,21 @@
 
 .create-ticket-form {
     background: white;
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: slideInLeft 0.6s ease-out;
 }
 
 .create-ticket-form h2 {
-    color: #2d3748;
+    color: #003D7A;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #FFCD00;
 }
 
 .form-group {
@@ -224,7 +271,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #2d3748;
+    color: #003D7A;
     font-weight: 600;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
@@ -234,29 +281,156 @@
     font-size: 1.2rem;
 }
 
+/* ===== GÉOLOCALISATION ===== */
+
+.address-input-container {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.address-input-container input {
+    flex: 1;
+}
+
+.location-button {
+    padding: 0.875rem 1rem;
+    background: #FFCD00;
+    color: #003D7A;
+    border: 2px solid #FFCD00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.location-button:hover:not(:disabled) {
+    background: #FFD633;
+    transform: scale(1.05);
+}
+
+.location-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loading-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    font-size: 1.5rem;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 .form-group input[type="text"],
 .form-group select,
 .form-group textarea {
     width: 100%;
     padding: 0.875rem;
     border: 2px solid #e2e8f0;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
     font-family: inherit;
+}
+
+/* Optimisation mobile pour le select */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23003D7A' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    background-size: 12px;
+    padding-right: 2.5rem;
 }
 
 .form-group input[type="text"]:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #FFCD00;
+    box-shadow: 0 0 0 3px rgba(255, 205, 0, 0.2);
+}
+
+/* ===== SÉLECTEUR DE TYPE DE PROBLÈME CUSTOM ===== */
+
+.problem-type-selector {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.problem-type-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    position: relative;
+}
+
+.problem-type-button:hover {
+    border-color: #FFCD00;
+    background: #fffbeb;
+    transform: translateX(4px);
+}
+
+.problem-type-button.selected {
+    border-color: #FFCD00;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-width: 3px;
+    box-shadow: 0 4px 12px rgba(255, 205, 0, 0.2);
+}
+
+.problem-type-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.problem-type-text {
+    flex: 1;
+    color: #003D7A;
+    font-weight: 500;
+}
+
+.check-icon {
+    color: #FFCD00;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
 }
 
 .form-group select {
     cursor: pointer;
     background-color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .form-group textarea {
@@ -277,9 +451,9 @@
 .photo-upload-button {
     display: inline-block;
     padding: 0.875rem 1.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 12px;
+    background: #FFCD00;
+    color: #003D7A;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
@@ -289,15 +463,17 @@
 
 .photo-upload-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 205, 0, 0.4);
+    background: #FFD633;
 }
 
 .photo-preview {
     position: relative;
     margin-top: 1rem;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FFCD00;
 }
 
 .photo-preview img {
@@ -336,10 +512,10 @@
 .submit-button {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #FFCD00;
+    color: #003D7A;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
@@ -353,7 +529,8 @@
 
 .submit-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 205, 0, 0.4);
+    background: #FFD633;
 }
 
 .submit-button:active {
@@ -368,14 +545,15 @@
 
 .tickets-list {
     background: white;
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: slideInRight 0.6s ease-out;
+    border-top: 4px solid #FFCD00;
 }
 
 .tickets-list h2 {
-    color: #2d3748;
+    color: #003D7A;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -428,29 +606,31 @@
 }
 
 .tickets-grid::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
+    background: #FFCD00;
     border-radius: 10px;
 }
 
 .tickets-grid::-webkit-scrollbar-thumb:hover {
-    background: #a0aec0;
+    background: #FFD633;
 }
 
 /* ===== CARTE DE TICKET ===== */
 
 .ticket-card {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-radius: 16px;
-    padding: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 8px;
+    padding: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border-left: 4px solid #FFCD00;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.75rem;
 }
 
 .ticket-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
-    border-color: #667eea;
+    box-shadow: 0 8px 20px rgba(255, 205, 0, 0.3);
+    border-left-color: #003D7A;
 }
 
 .ticket-card-header {
@@ -462,8 +642,11 @@
 
 .ticket-id {
     font-weight: 700;
-    color: #667eea;
+    color: #003D7A;
     font-size: 1.1rem;
+    background: #FFCD00;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
 }
 
 .ticket-time {
@@ -488,7 +671,7 @@
 
 .problem-type {
     font-weight: 600;
-    color: #2d3748;
+    color: #003D7A;
     font-size: 1.05rem;
 }
 
@@ -537,10 +720,10 @@
 
 .photo-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #FFCD00;
+    color: #003D7A;
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -552,7 +735,7 @@
 }
 
 .view-details {
-    color: #667eea;
+    color: #003D7A;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
@@ -561,6 +744,7 @@
 .ticket-card:hover .view-details {
     transform: translateX(4px);
     display: inline-block;
+    color: #FFCD00;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -661,6 +845,10 @@
 
 @media (max-width: 640px) {
     .factor-board {
+        padding: 0.5rem;
+    }
+
+    .factor-board-header {
         padding: 1rem;
     }
 
@@ -668,29 +856,152 @@
         font-size: 1.8rem;
     }
 
+    .app-title {
+        font-size: 2.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    .app-subtitle {
+        font-size: 1rem;
+    }
+
+    .laposte-logo svg {
+        width: 150px;
+        height: auto;
+    }
+
     .open-modal-button {
         font-size: 1rem;
         padding: 0.875rem 1.5rem;
+        width: 100%;
+        max-width: 300px;
     }
 
     .create-ticket-form,
     .tickets-list {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
-    .validation-content {
-        margin: 1rem;
-        padding: 2rem;
+    .create-ticket-form h2 {
+        font-size: 1.2rem;
     }
 
+    /* Optimisation du modal pour mobile */
     .modal-content {
         width: 100%;
         max-height: 100vh;
         border-radius: 0;
+        padding: 0;
+    }
+
+    .modal-content .create-ticket-form {
+        border-radius: 0;
+        max-height: 100vh;
+        overflow-y: auto;
     }
 
     .modal-close-button {
-        top: 0.5rem;
-        right: 0.5rem;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.8rem;
+        z-index: 100;
+    }
+
+    /* Amélioration des champs de formulaire pour mobile */
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        /* Évite le zoom automatique sur iOS */
+        padding: 1rem;
+        min-height: 48px;
+        /* Taille tactile recommandée */
+    }
+
+    .form-group select {
+        background-size: 16px;
+        padding-right: 3rem;
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+    }
+
+    /* Bouton de géolocalisation plus grand */
+    .location-button {
+        min-width: 60px;
+        padding: 1rem;
+        font-size: 1.8rem;
+    }
+
+    /* Bouton photo plus visible */
+    .photo-upload-button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    /* Bouton submit plus grand */
+    .submit-button {
+        padding: 1.25rem;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    .validation-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .validation-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    /* Tickets list optimisé */
+    .tickets-grid {
+        max-height: calc(100vh - 250px);
+    }
+
+    .ticket-card {
+        padding: 1rem;
+    }
+
+    .help-text {
+        font-size: 0.8rem;
+    }
+
+    /* Sélecteur de problème optimisé mobile */
+    .problem-type-selector {
+        gap: 0.5rem;
+    }
+
+    .problem-type-button {
+        padding: 0.875rem;
+        min-height: 56px;
+    }
+
+    .problem-type-icon {
+        font-size: 1.3rem;
+    }
+
+    .problem-type-text {
+        font-size: 0.95rem;
+    }
+
+    .check-icon {
+        font-size: 1.3rem;
     }
 }

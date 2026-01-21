@@ -1,0 +1,135 @@
+/* ===== TICKETS EN FORMAT LIGNE ===== */
+
+.ticket-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid #FFCD00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    margin-bottom: 0.5rem;
+}
+
+.ticket-row:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(255, 205, 0, 0.2);
+}
+
+/* Colonnes du ticket en ligne */
+.ticket-col {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ticket-id-col {
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.ticket-status-col {
+    flex-shrink: 0;
+    width: 30px;
+}
+
+.ticket-problem-col {
+    flex-shrink: 0;
+    width: 200px;
+}
+
+.ticket-address-col {
+    flex: 1;
+    min-width: 0;
+}
+
+.ticket-action-col {
+    flex-shrink: 0;
+    width: 140px;
+}
+
+.ticket-id {
+    background: #FFCD00;
+    color: #003D7A;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.problem-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.problem-type {
+    font-weight: 600;
+    color: #003D7A;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.address-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.address-text {
+    flex: 1;
+    font-size: 0.875rem;
+    color: #4a5568;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.view-details-btn {
+    background: #003D7A;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.view-details-btn:hover {
+    background: #FFCD00;
+    color: #003D7A;
+    transform: scale(1.05);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .ticket-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .ticket-problem-col {
+        width: 150px;
+    }
+
+    .ticket-address-col {
+        flex-basis: 100%;
+        order: 5;
+    }
+
+    .ticket-action-col {
+        width: auto;
+    }
+
+    .view-details-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
