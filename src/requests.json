@@ -2,6 +2,8 @@
   {
     "UUID": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
     "address": "123 Main St, Anytown, USA",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
     "PicturePath": "/assets/images/request_1.jpg",
     "detail": "Mailbox broken",
     "problemCategory": "Infrastructure",
@@ -11,6 +13,8 @@
   {
     "UUID": "f6e5d4c3-b2a1-0987-6543-210fedcba987",
     "address": "456 Oak Ave, Somewhere, USA",
+    "latitude": 48.8606,
+    "longitude": 2.3376,
     "PicturePath": "/assets/images/request_2.jpg",
     "detail": "Package too large for mailbox",
     "problemCategory": "Delivery",
@@ -20,7 +24,10 @@
   {
     "UUID": "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
     "address": "789 Pine Ln, Nowhere, USA",
+    "latitude": 48.8530,
+    "longitude": 2.3499,
     "PicturePath": "/assets/images/request_3.jpg",
+    "detail": "Customer compliant",
     "problemCategory": "Customer Service",
     "state": "problem_handled",
     "contactMethod": "phone"
