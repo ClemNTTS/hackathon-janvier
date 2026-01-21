@@ -12,7 +12,7 @@ const FactorRequestView = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/requests/${id}`)
+    fetch(`/api/requests/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRequest(data);
@@ -26,7 +26,7 @@ const FactorRequestView = () => {
 
   const handleCloseRequest = async () => {
     try {
-      await fetch(`http://localhost:3001/requests/${id}`, {
+      await fetch(`/api/requests/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

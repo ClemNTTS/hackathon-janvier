@@ -13,7 +13,7 @@ const ManagerRequestView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/requests/${id}`)
+    fetch(`/api/requests/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRequest(data);
@@ -30,7 +30,7 @@ const ManagerRequestView = () => {
 
   const updateRequest = async (updatedData) => {
     try {
-      const response = await fetch(`http://localhost:3001/requests/${id}`, {
+      const response = await fetch(`/api/requests/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
