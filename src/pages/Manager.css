@@ -1,0 +1,108 @@
+.manager-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.manager-container h1 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requests-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.requests-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.requests-table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.2s ease;
+}
+
+.request-row {
+  cursor: pointer;
+}
+
+.request-row:hover {
+  background-color: #f8f9fa;
+}
+
+.requests-table td {
+  padding: 1rem;
+  color: #212529;
+  font-size: 0.9rem;
+}
+
+.status-badge,
+.priority-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-in-progress {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-resolved {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+@media (max-width: 1200px) {
+  .manager-container {
+    padding: 1rem;
+  }
+
+  .requests-table {
+    font-size: 0.85rem;
+  }
+
+  .requests-table th,
+  .requests-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .requests-table {
+    min-width: 800px;
+  }
+}
