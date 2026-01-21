@@ -1,0 +1,32 @@
+.map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.pin {
+    font-size: 24px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s;
+}
+
+.pin:hover {
+    transform: scale(1.2);
+}
+
+.popup-content {
+    max-width: 240px;
+    padding: 5px;
+}
+
+.popup-content h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-content p {
+    margin: 0 0 5px;
+    font-size: 14px;
+    color: #666;
+}

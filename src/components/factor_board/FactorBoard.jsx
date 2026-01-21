@@ -6,6 +6,7 @@ import TicketsList from './TicketsList';
 import './FactorBoard.css';
 import './TicketStatus.css';
 import './TicketRow.css';
+import MapComponent from '../map/Map';
 
 function FactorBoard() {
     const navigate = useNavigate();
@@ -156,7 +157,15 @@ function FactorBoard() {
                         onTicketClick={handleTicketClick}
                     />
                 </section>
+
+                <section className="map-section full-width" style={{ marginTop: '2rem' }}>
+                    <h2 style={{ color: 'white', marginBottom: '1rem' }}>Carte des Incidents</h2>
+                    <div style={{ height: '500px', width: '100%', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
+                        <MapComponent />
+                    </div>
+                </section>
             </div>
+
         </div>
     );
 }
