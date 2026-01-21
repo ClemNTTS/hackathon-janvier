@@ -5,7 +5,8 @@
     "PicturePath": "/assets/images/request_1.jpg",
     "detail": "Mailbox broken",
     "problemCategory": "Infrastructure",
-    "status": "non_traite"
+    "state": "new",
+    "contactMethod": ""
   },
   {
     "UUID": "f6e5d4c3-b2a1-0987-6543-210fedcba987",
@@ -13,13 +14,15 @@
     "PicturePath": "/assets/images/request_2.jpg",
     "detail": "Package too large for mailbox",
     "problemCategory": "Delivery",
-    "status": "en_cours"
+    "state": "decision_made",
+    "contactMethod": "mail"
   },
   {
     "UUID": "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
     "address": "789 Pine Ln, Nowhere, USA",
     "PicturePath": "/assets/images/request_3.jpg",
     "problemCategory": "Customer Service",
-    "status": "verification"
+    "state": "problem_handled",
+    "contactMethod": "phone"
   }
 ]
