@@ -16,7 +16,7 @@ const FactorRequestView = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/requests/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/requests/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRequest(data);
@@ -30,7 +30,7 @@ const FactorRequestView = () => {
 
   const handleCloseRequest = async () => {
     try {
-      await fetch(`/api/requests/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/requests/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

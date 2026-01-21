@@ -13,7 +13,7 @@ function ManagerRequestsListPage() {
     useEffect(() => {
         const fetchTickets = async () => {
             try {
-                const response = await fetch('http://localhost:3001/requests');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/requests`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
