@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import requestsData from '../requests.json';
+import requestsData from '../../requests.json';
 import './Manager.css';
 
 function Manager() {
