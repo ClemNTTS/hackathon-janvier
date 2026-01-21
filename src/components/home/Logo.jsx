@@ -1,11 +1,11 @@
 import React from 'react';
 import './LoginPage.css';
+import logoPoste from '../../assets/LogolaPoste.svg';
 
 const Logo = () => {
   return (
     <div className="logo-placeholder">
-      <div className="logo-icon">P</div>
-      <span>La Poste</span>
+      <img src={logoPoste} alt="La Poste" style={{ height: '50px' }} />
     </div>
   );
 };

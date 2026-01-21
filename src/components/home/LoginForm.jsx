@@ -12,11 +12,11 @@ const LoginForm = ({
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="identifiant">Identifiant {role === 'manager' ? 'RH' : 'Facteur'}</label>
+        <label htmlFor="identifiant">Identifiant</label>
         <input
           type="text"
           id="identifiant"
-          placeholder={`Votre identifiant ${role}`}
+          placeholder="Votre identifiant"
           value={identifiant}
           onChange={(e) => setIdentifiant(e.target.value)}
           required
