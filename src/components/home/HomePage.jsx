@@ -21,13 +21,13 @@ const HomePage = () => {
   };
 
   const handleOTPSubmit = (otpCode) => {
-      console.log(`OTP Submitted: ${otpCode}`);
-      // Simulate OTP validation
-      if (role === 'facteur') {
-          navigate('/factor');
-      } else if (role === 'manager') {
-          navigate('/manager');
-      }
+    console.log(`OTP Submitted: ${otpCode}`);
+    // Simulate OTP validation
+    if (role === 'facteur') {
+      navigate('/postman');
+    } else if (role === 'manager') {
+      navigate('/manager');
+    }
   };
 
   return (
@@ -36,31 +36,31 @@ const HomePage = () => {
         <Logo />
 
         <h2 style={{ marginBottom: '1.5rem', color: '#333' }}>
-            {step === 'login' ? 'Connexion' : 'Code de sécurité'}
+          {step === 'login' ? 'Connexion' : 'Code de sécurité'}
         </h2>
 
         {step === 'login' && (
-            <>
-                <RoleSelector role={role} setRole={setRole} />
-                <LoginForm
-                role={role}
-                identifiant={identifiant}
-                setIdentifiant={setIdentifiant}
-                password={password}
-                setPassword={setPassword}
-                handleSubmit={handleLoginSubmit}
-                />
-            </>
+          <>
+            <RoleSelector role={role} setRole={setRole} />
+            <LoginForm
+              role={role}
+              identifiant={identifiant}
+              setIdentifiant={setIdentifiant}
+              password={password}
+              setPassword={setPassword}
+              handleSubmit={handleLoginSubmit}
+            />
+          </>
         )}
 
         {step === 'otp' && (
-            <OTPForm handleSubmit={handleOTPSubmit} />
+          <OTPForm handleSubmit={handleOTPSubmit} />
         )}
 
         {step === 'login' && (
-            <div className="help-text">
+          <div className="help-text">
             <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
-            </div>
+          </div>
         )}
       </div>
     </div>

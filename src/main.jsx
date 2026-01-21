@@ -5,7 +5,7 @@ import "./index.css";
 import "./App.css";
 import HomePage from "./components/home/HomePage";
 import ManagerPage from "./components/pages/ManagerPage";
-import PostmanPage from "./components/pages/PostmanPage";
+import FactorBoard from "./components/factor_board/FactorBoard";
 import RequestListPage from "./pages/RequestListPage";
 import ManagerRequestView from "./pages/ManagerRequestView";
 import FactorRequestView from "./pages/FactorRequestView";
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
     element: <ManagerPage />,
   },
   {
-    path: "/factor",
-    element: <PostmanPage />,
+    path: "/postman",
+    element: <FactorBoard />,
   },
   {
     path: "/requests",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     element: <ManagerRequestView />,
   },
   {
-    path: "/factor/request/:id",
+    path: "/postman/request/:id",
     element: <FactorRequestView />,
   },
 ]);
