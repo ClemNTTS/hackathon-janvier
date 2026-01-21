@@ -24,7 +24,7 @@ const HomePage = () => {
       console.log(`OTP Submitted: ${otpCode}`);
       // Simulate OTP validation
       if (role === 'facteur') {
-          navigate('/postman');
+          navigate('/factor');
       } else if (role === 'manager') {
           navigate('/manager');
       }
