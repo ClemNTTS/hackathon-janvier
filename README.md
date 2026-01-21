@@ -40,3 +40,5 @@ To facilitate development and deployment, this project includes a `Dockerfile` a
     ```
 
 For more options, you can run `make help`.
+
+test
