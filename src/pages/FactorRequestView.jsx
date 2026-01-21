@@ -4,6 +4,10 @@ import MuiStepper from '../components/MuiStepper';
 import RequestState from '../components/RequestState';
 import PrivateChat from '../components/PrivateChat';
 import Header from '../components/Header';
+import '../../src/components/factor_board/FactorBoard.css';
+import '../../src/components/factor_board/TicketStatus.css';
+import '../../src/components/factor_board/TicketRow.css';
+import './FactorRequestView.css';
 
 const FactorRequestView = () => {
   const { id } = useParams();
@@ -12,7 +16,7 @@ const FactorRequestView = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/requests/${id}`)
+    fetch(`http://localhost:3001/requests/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRequest(data);
@@ -33,7 +37,7 @@ const FactorRequestView = () => {
         },
         body: JSON.stringify({ state: 'closed' }),
       });
-      navigate('/');
+      navigate('/postman');
     } catch (error) {
       console.error('Error updating request:', error);
     }
@@ -63,15 +67,18 @@ const FactorRequestView = () => {
   };
 
   return (
-    <>
+    <div className="factor-board">
       <Header />
-      <div className="request-view-container">
+      <div className="factor-board-content">
         <div className="chat-container">
           <PrivateChat />
         </div>
-        <div className="details-container">
+        <div className="details-container full-width">
           <MuiStepper currentStep={getStepFromState()} />
           <div className="request-header">
+            <button className="back-button" onClick={() => navigate(-1)}>
+              <span className="button-icon">⬅️</span> Retour
+            </button>
             <h2>Détails de la demande</h2>
             <RequestState state={request.state} />
           </div>
@@ -93,7 +100,7 @@ const FactorRequestView = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

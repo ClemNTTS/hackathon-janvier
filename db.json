@@ -23,8 +23,46 @@
       "address": "789 Pine Ln, Nowhere, USA",
       "PicturePath": "/assets/images/request_3.jpg",
       "problemCategory": "Customer Service",
-      "state": "problem_handled",
+      "state": "closed",
       "contactMethod": "phone"
+    },
+    {
+      "id": "5f6f",
+      "address": "18 Place Saint-Marc, 76000 Rouen",
+      "problemCategory": "Boîte endommagée",
+      "detail": "Test",
+      "PicturePath": {},
+      "state": "closed",
+      "createdAt": "2026-01-21T14:07:06.637Z",
+      "contactMethod": "mail"
+    },
+    {
+      "id": "e66e",
+      "address": "AZEAZE",
+      "problemCategory": "Boîte endommagée",
+      "detail": "AZE",
+      "PicturePath": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wK... (truncated)",
+      "state": "closed",
+      "createdAt": "2026-01-21T14:09:16.623Z",
+      "contactMethod": "mail"
+    },
+    {
+      "id": "2847",
+      "address": "iuqsgdq",
+      "problemCategory": "Boîte endommagée",
+      "detail": "qsdqsd",
+      "PicturePath": null,
+      "state": "new",
+      "createdAt": "2026-01-21T14:33:25.976Z"
+    },
+    {
+      "id": "22b6",
+      "address": "qsdqsd",
+      "problemCategory": "Boîte endommagée",
+      "detail": "",
+      "PicturePath": null,
+      "state": "new",
+      "createdAt": "2026-01-21T14:33:46.093Z"
     }
   ]
 }

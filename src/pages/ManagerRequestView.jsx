@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import MuiStepper from '../components/MuiStepper';
 import RequestState from '../components/RequestState';
 import PrivateChat from '../components/PrivateChat';
 import Header from '../components/Header';
 import SanctionModal from '../components/SanctionModal';
+import '../../src/components/factor_board/FactorBoard.css';
+import '../../src/components/factor_board/TicketStatus.css';
+import '../../src/components/factor_board/TicketRow.css';
+import './FactorRequestView.css';
 
 const ManagerRequestView = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [request, setRequest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/requests/${id}`)
+    fetch(`http://localhost:3001/requests/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRequest(data);
@@ -30,7 +35,7 @@ const ManagerRequestView = () => {
 
   const updateRequest = async (updatedData) => {
     try {
-      const response = await fetch(`/api/requests/${id}`, {
+      const response = await fetch(`http://localhost:3001/requests/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -77,15 +82,18 @@ const ManagerRequestView = () => {
   };
 
   return (
-    <>
+    <div className="factor-board">
       <Header />
-      <div className="request-view-container">
+      <div className="factor-board-content">
         <div className="chat-container">
           <PrivateChat />
         </div>
         <div className="details-container">
           <MuiStepper currentStep={getStepFromState()} />
           <div className="request-header">
+            <button className="back-button" onClick={() => navigate(-1)}>
+              <span className="button-icon">⬅️</span> Retour
+            </button>
             <h2>Détails de la demande</h2>
             <RequestState state={request.state} />
           </div>
@@ -116,7 +124,7 @@ const ManagerRequestView = () => {
         handleClose={handleCloseModal}
         handleSanction={handleSanction}
       />
-    </>
+    </div>
   );
 };
 

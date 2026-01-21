@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 import HomePage from "./components/home/HomePage";
-import ManagerPage from "./components/pages/ManagerPage";
 import FactorBoard from "./components/factor_board/FactorBoard";
 import RequestListPage from "./pages/RequestListPage";
 import ManagerRequestView from "./pages/ManagerRequestView";
 import FactorRequestView from "./pages/FactorRequestView";
+import ManagerRequestsListPage from "./pages/ManagerRequestsListPage";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/manager",
-    element: <ManagerPage />,
+    element: <ManagerRequestsListPage />,
   },
   {
     path: "/postman",
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/requests",
     element: <RequestListPage />,
+  },
+  {
+    path: "/manager/requests",
+    element: <ManagerRequestsListPage />,
   },
   {
     path: "/manager/request/:id",

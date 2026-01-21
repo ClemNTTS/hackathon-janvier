@@ -1,38 +1,51 @@
 /* ===== STATUTS COLORÉS - TICKETS ===== */
 
+/* General styles for RequestState component */
+.request-state {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.request-state .status-label {
+    color: #4a5568;
+}
+
 /* Bordures colorées selon le statut */
-.ticket-card.status-red {
+.ticket-card.status-new {
     border-left-color: #ef4444;
 }
 
-.ticket-card.status-red:hover {
+.ticket-card.status-new:hover {
     border-left-color: #dc2626;
     box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
 }
 
-.ticket-card.status-orange {
+.ticket-card.status-decision-made {
     border-left-color: #f97316;
 }
 
-.ticket-card.status-orange:hover {
+.ticket-card.status-decision-made:hover {
     border-left-color: #ea580c;
     box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
 }
 
-.ticket-card.status-blue {
+.ticket-card.status-problem-handled {
     border-left-color: #3b82f6;
 }
 
-.ticket-card.status-blue:hover {
+.ticket-card.status-problem-handled:hover {
     border-left-color: #2563eb;
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
 }
 
-.ticket-card.status-green {
+.ticket-card.status-closed {
     border-left-color: #22c55e;
 }
 
-.ticket-card.status-green:hover {
+.ticket-card.status-closed:hover {
     border-left-color: #16a34a;
     box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
 }
@@ -46,22 +59,22 @@
     margin-right: 0.5rem;
 }
 
-.status-dot.status-red {
+.status-dot.status-new {
     background: #ef4444;
     box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
 }
 
-.status-dot.status-orange {
+.status-dot.status-decision-made {
     background: #f97316;
     box-shadow: 0 0 8px rgba(249, 115, 22, 0.5);
 }
 
-.status-dot.status-blue {
+.status-dot.status-problem-handled {
     background: #3b82f6;
     box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
 }
 
-.status-dot.status-green {
+.status-dot.status-closed {
     background: #22c55e;
     box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
 }

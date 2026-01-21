@@ -132,14 +132,12 @@ function CreateTicketForm({ onSubmit }) {
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setFormData(prev => ({
-                ...prev,
-                photo: file
-            }));
-
-            // Créer une prévisualisation
             const reader = new FileReader();
             reader.onloadend = () => {
+                setFormData(prev => ({
+                    ...prev,
+                    photo: reader.result
+                }));
                 setPhotoPreview(reader.result);
             };
             reader.readAsDataURL(file);

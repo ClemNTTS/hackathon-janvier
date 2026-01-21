@@ -1,3 +1,5 @@
+import RequestState from '../RequestState'; // Import RequestState component
+
 function TicketCard({ ticket, onClick }) {
     const formatDate = (date) => {
         const now = new Date();
@@ -28,24 +30,32 @@ function TicketCard({ ticket, onClick }) {
         return icons[problemType] || '📮';
     };
 
-    const getStatusInfo = (status) => {
-        const statusMap = {
-            'non_traite': { label: 'Non traité', color: 'red' },
-            'en_cours': { label: 'En cours', color: 'orange' },
-            'verification': { label: 'Vérification', color: 'blue' },
-            'termine': { label: 'Terminé', color: 'green' }
-        };
-        return statusMap[status] || { label: 'Inconnu', color: 'gray' };
-    };
-
-    const statusInfo = getStatusInfo(ticket.status);
+    // Determine the ticket card's border color based on its state
+    let borderColorClass = '';
+    switch (ticket.state) {
+        case 'new':
+            borderColorClass = 'status-new';
+            break;
+        case 'decision_made':
+            borderColorClass = 'status-decision-made';
+            break;
+        case 'problem_handled':
+            borderColorClass = 'status-problem-handled';
+            break;
+        case 'closed':
+            borderColorClass = 'status-closed';
+            break;
+        default:
+            borderColorClass = 'status-default';
+            break;
+    }
 
     return (
-        <div className={`ticket-card status-${statusInfo.color}`} onClick={onClick}>
+        <div className={`ticket-card ${borderColorClass}`} onClick={onClick}>
             <div className="ticket-card-header">
                 <span className="ticket-id">#{ticket.id}</span>
                 <div className="ticket-header-right">
-                    <span className={`status-dot status-${statusInfo.color}`} title={statusInfo.label}></span>
+                    <RequestState state={ticket.state} /> {/* Use RequestState component */}
                     <span className="ticket-time">{formatDate(ticket.createdAt)}</span>
                 </div>
             </div>

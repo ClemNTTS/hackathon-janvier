@@ -1,0 +1,108 @@
+/* Styles for FactorRequestView.jsx */
+
+.factor-board-content {
+    display: flex;
+    gap: 2rem; /* Space between chat and details */
+    align-items: stretch; /* Stretch children to fill the height */
+    height: calc(100vh - 4rem); /* Full viewport height minus parent padding */
+}
+
+.chat-container {
+    flex: 0 0 30%; /* Chat takes 30% width */
+    max-width: 30%;
+    overflow-y: auto; /* Add scroll for overflowing content */
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid #FFCD00;
+}
+
+.details-container {
+    flex: 1; /* Details take remaining space */
+    min-width: 0;
+    overflow-y: auto; /* Add scroll for overflowing content */
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid #FFCD00;
+}
+
+.request-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between back button and title */
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #FFCD00;
+}
+
+.request-header h2 {
+    flex-grow: 1; /* Allow title to take available space */
+    margin: 0; /* Remove default margin */
+}
+
+.back-button {
+    padding: 0.5rem 1rem;
+    background: #FFCD00;
+    color: #003D7A;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 205, 0, 0.2);
+    background: #FFD633;
+}
+
+.back-button .button-icon {
+    font-size: 1.1rem;
+}
+
+.sanction-button,
+.problem-handled-button,
+.confirm-button {
+    padding: 0.75rem 1.5rem;
+    background: #003D7A;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sanction-button:hover,
+.problem-handled-button:hover,
+.confirm-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 61, 122, 0.3);
+    background: #0052A3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .factor-board-content {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        gap: 1.5rem;
+    }
+
+    .chat-container,
+    .details-container {
+        flex: 0 0 100%; /* Full width for both on smaller screens */
+        max-width: 100%;
+    }
+}
+

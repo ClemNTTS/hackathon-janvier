@@ -2,7 +2,6 @@ import React from 'react';
 import './LoginPage.css';
 
 const LoginForm = ({
-  role,
   identifiant,
   setIdentifiant,
   password,

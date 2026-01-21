@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CreateTicketForm from './CreateTicketForm';
-import TicketsList from './TicketsList';
+import TicketsList from '../components/factor_board/TicketsList';
 
-import './FactorBoard.css';
-import './TicketStatus.css';
-import './TicketRow.css';
+import '../components/factor_board/FactorBoard.css';
+import '../components/factor_board/TicketStatus.css';
+import '../components/factor_board/TicketRow.css';
 
-function FactorBoard() {
-    const navigate = useNavigate();
+function ManagerRequestsListPage() {
     const [tickets, setTickets] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchTickets = async () => {
             try {
@@ -35,62 +35,8 @@ function FactorBoard() {
         fetchTickets();
     }, []);
 
-    const [showValidation, setShowValidation] = useState(false);
-    const [lastCreatedTicket, setLastCreatedTicket] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const handleCreateTicket = async (ticketData) => {
-        const newTicket = {
-            address: ticketData.address,
-            problemCategory: ticketData.problemType || 'Autre',
-            detail: ticketData.notes || '',
-            PicturePath: ticketData.photo || null,
-            state: 'new', // Use state
-            createdAt: new Date().toISOString()
-        };
-
-        try {
-            const response = await fetch('http://localhost:3001/requests', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newTicket),
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const addedTicket = await response.json();
-            const mappedAddedTicket = {
-                id: addedTicket.id,
-                address: addedTicket.address,
-                problemType: addedTicket.problemCategory,
-                notes: addedTicket.detail,
-                photo: addedTicket.PicturePath,
-                state: addedTicket.state,
-                createdAt: new Date(addedTicket.createdAt)
-            };
-
-            setTickets((prevTickets) => [mappedAddedTicket, ...prevTickets]);
-            setLastCreatedTicket(mappedAddedTicket);
-            setIsModalOpen(false); // Fermer le modal
-            setShowValidation(true);
-
-            // Masquer la validation après 3 secondes
-            setTimeout(() => {
-                setShowValidation(false);
-            }, 3000);
-
-        } catch (error) {
-            console.error("Failed to create ticket:", error);
-        }
-    };
-
     const handleTicketClick = (ticketId) => {
-        // Navigation vers la page de détail du ticket
-        navigate(`/postman/request/${ticketId}`);
+        navigate(`/manager/request/${ticketId}`);
     };
 
     return (
@@ -110,45 +56,8 @@ function FactorBoard() {
                         <path d="M65.4129 5.94629H62.8594V17.6597C62.8594 18.1862 63.1847 18.5679 63.7721 18.5679H71.4014L72.613 16.2328H65.4131V5.9465L65.4129 5.94629Z" fill="white" />
                     </svg>
                 </div>
-
-                <button
-                    className="open-modal-button"
-                    onClick={() => setIsModalOpen(true)}
-                >
-                    <span className="button-icon">➕</span>
-                    Signaler
-                </button>
+                <h1>Suivi des Demandes</h1>
             </header>
-
-            {showValidation && lastCreatedTicket && (
-                <div className="validation-popup">
-                    <div className="validation-content">
-                        <div className="validation-icon">✓</div>
-                        <h3>Demande crée avec succès !</h3>
-                        <p><strong>Adresse :</strong> {lastCreatedTicket.address}</p>
-                        <p><strong>Problème :</strong> {lastCreatedTicket.problemType}</p>
-                        <p><strong>Numéro :</strong> #{lastCreatedTicket.id}</p>
-                    </div>
-                </div>
-            )}
-
-            {isModalOpen && (
-                <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button
-                            className="modal-close-button"
-                            onClick={() => setIsModalOpen(false)}
-                        >
-                            ✕
-                        </button>
-                        <CreateTicketForm
-                            onSubmit={handleCreateTicket}
-                            onCancel={() => setIsModalOpen(false)}
-                        />
-                    </div>
-                </div>
-            )}
-
             <div className="factor-board-content">
                 <section className="tickets-list-section full-width">
                     <TicketsList
@@ -161,4 +70,4 @@ function FactorBoard() {
     );
 }
 
-export default FactorBoard;
+export default ManagerRequestsListPage;
